@@ -16,8 +16,12 @@
 <body>
     <h1 class="text-center p-3"> Registro de Personas </h1>
     <div class="container-fluid row">
-        <form class="col-4 p-3">
+        <form class="col-4 p-3" method="POST">
             <h3 class="text-center text-secondary">Registro de personas</h3>
+            <?php
+            include "modelo/conexion.php";
+            include "controlador/registro_personas.php";
+            ?>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre de la Persona</label>
                 <input type="text" class="form-control" name="nombre">
@@ -38,7 +42,7 @@
                 <label for="exampleInputEmail1" class="form-label">Correo</label>
                 <input type="email" class="form-control" name="correo">
             </div>
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Registrar</button>
         </form>
         <div class="col-8 p-4">
         <table class="table">
