@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <h1 class="text-center p-3"> Empleados Delthac 1 </h1>
+    <h1 class="text-center p-3"> Registro de Personas </h1>
     <div class="container-fluid row">
         <form class="col-4 p-3">
             <h3 class="text-center text-secondary">Registro de personas</h3>
@@ -40,8 +40,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
-    </div>
-    <div class="col-8 p-4">
+        <div class="col-8 p-4">
         <table class="table">
             <thead class="bg-info">
                 <tr>
@@ -55,13 +54,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>LUIGI</td>
-                    <td>ESTEVEZ</td>
-                    <td>146510560</td>
-                    <td>17-07-2001</td>
-                    <td>luigi@stig.com</td>
+                <?php
+                include "modelo/conexion.php";
+                $sql = $conexion->query("select * from persona");
+                while($datos=$sql->fetch_object()){?>
+                    <tr>
+                    <td><?= $datos->idpersona ?></td>
+                    <td><?= $datos->nombre ?></td>
+                    <td><?= $datos->apellido ?></td>
+                    <td><?= $datos->dni ?></td>
+                    <td><?= $datos->fecha_nac ?></td>
+                    <td><?= $datos->correo ?></td>
                     <td>
                         <a href="editar" class="btn btn-small btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                         <a href="eliminar" class="btn btn-small btn-danger">
@@ -69,10 +72,16 @@
                         </a>
                     </td>
                 </tr>
+            <?php }
+            ?>
+                
+
             </tbody>
         </table>
     </div>
     </div>
+
+
 </body>
 
 </html>
