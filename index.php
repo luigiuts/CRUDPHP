@@ -70,7 +70,7 @@
                     <td><?= $datos->fecha_nac ?></td>
                     <td><?= $datos->correo ?></td>
                     <td>
-                        <a href="editar" class="btn btn-small btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="modificar_personas.php?id=<?= $datos->idpersona ?>" class="btn btn-small btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                         <a href="eliminar" class="btn btn-small btn-danger">
                             <i class="fa-regular fa-trash"></i>
                         </a>
